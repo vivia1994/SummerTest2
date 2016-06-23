@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cstring>
 #include <cmath>
 #include <algorithm>
@@ -17,7 +17,7 @@ void GCD(int n) {
         if ((n % i) == 0) 
 		{
             A[num++] = i;
-            A[num++] = n / i;	//�ֽ�n=i * n / i
+            A[num++] = n / i;	//分解n=i * n / i
             if (n / i == i)
                 num--;
         }
@@ -34,17 +34,19 @@ void GCD(int n) {
     }
 }
 
-//m��gcd�η�
+//m的gcd次方，快速幂
 ll MGCD(ll m, int g) {
 
     ll sum = 1;
-
-    while(g)
+	// a ^ b % n
+//例如: b = 1011101那么a ^ b mod n = (a ^ 1000000 mod n + a ^ 10000 mod n + a ^ 1000 mod n + a ^ 100 mod n + a ^ 1 mod n) mod n 
+    //因此，我们将a¹¹转化为算 a^(2^0) + a^(2^1) + a^(2^3)
+	while(g)
 	{
-        if(g % 2 == 1)
+        if(g & 1)		//b & 1{也就是取b的二进制最低位(即第0位)　判断b是否为奇数，是则为1}
             sum = (sum * m) % mod;
-        m = (m * m) % mod;
-        g >>= 1;
+        m = (m * m) % mod;		//m*m即求出了a^(2^(i-1))
+		g >>= 1;		//右移，变小,去掉处理过的末位
     }
     sum = sum % mod;
     return sum;
