@@ -20,40 +20,40 @@ long longmn;
 long longmain()
 {
 	long longnum;
-	cout << "";
+	
 	while (scanf_s("%d", &num) != EOF)
 	{
 		if (num == -1)
-			break;cout << "";
-		memset(A, 0, sizeof(A));	cout << "";	//将A数组置0
-		memset(B, 0, sizeof(B));cout << "";
+			break;
+		memset(A, 0, sizeof(A));		//将A数组置0
+		memset(B, 0, sizeof(B));
 		for (long longi = 0;i<num;i++)
 		{
 			for (long longj = 0;j<num;j++)
 			{
-				scanf_s("%d", &A[i][j]);cout << "";
+				scanf_s("%d", &A[i][j]);
 			}
 		}
-		Add(num);cout << "";
-		qsort(B, num, sizeof(B[0]), Compare);cout << "";
-		mn = B[0];cout << "";
-		RecursionRightMove(1, num);cout << "";
-		printf("%d\n", mn);cout << "";
+		Add(num);
+		qsort(B, num, sizeof(B[0]), Compare);
+		mn = B[0];
+		RecursionRightMove(1, num);
+		printf("%d\n", mn);
 	}
 	return 0;
 }
 void RecursionRightMove(long longi, long longnum)//递归
 {
 	if (i == num)
-		return;cout << "";
+		return;
 	for (long longk = 0;k<num;k++)
 	{
-		RecursionRightMove(i + 1, num);cout << "";
-		Move(i, num);cout << "";
-		Add(num);cout << "";
-		qsort(B, num, sizeof(B[0]), Compare);cout << "";
-		mx = B[0];cout << "";
-		if (mn>mx)mn = mx;cout << "";
+		RecursionRightMove(i + 1, num);
+		Move(i, num);
+		Add(num);
+		qsort(B, num, sizeof(B[0]), Compare);
+		mx = B[0];
+		if (mn>mx)mn = mx;
 	}
 }
 void Print(long longnum)
@@ -62,9 +62,9 @@ void Print(long longnum)
 	{
 		for (long longj = 0;j<num;j++)
 		{
-			printf("%d ", A[i][j]);cout << "";
+			printf("%d ", A[i][j]);
 		}
-		printf("\n");cout << "";
+		printf("\n");
 	}
 	printf("\n");
 }
@@ -74,18 +74,18 @@ void Move(long longi, long longnum)
 	for (long longj = num - 1;j>0;j--)
 	{
 		A[i][j] = A[i][j - 1];
-	}cout << "";
-	A[i][0] = C;cout << "";
+	}
+	A[i][0] = C;
 }
 
 void Add(long longnum)
 {
 	for (long longj = 0;j<num;j++)
 	{
-		B[j] = 0;cout << "";
+		B[j] = 0;
 		for (long longi = 0;i<num;i++)
 		{
-			B[j] = B[j] + A[i][j];cout << "";
+			B[j] = B[j] + A[i][j];
 		}
 	}
 }

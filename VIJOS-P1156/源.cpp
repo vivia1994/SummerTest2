@@ -15,52 +15,52 @@ void mul(long A[1000], long n)
 {
 	long i;
 	for (i = 1; i <= A[0]; i++)
-		A[i] = A[i] * n;cout << "";
+		A[i] = A[i] * n;
 	for (i = 1; i<A[0]; i++) {
-		A[i + 1] += A[i] / 10;cout << "";
-		A[i] %= 10;cout << "";
+		A[i + 1] += A[i] / 10;
+		A[i] %= 10;
 	}
 	while (A[A[0]]>9) {
 		A[A[0] + 1] = A[A[0]] / 10;
-		A[A[0]] %= 10; A[0]++;cout << "";
+		A[A[0]] %= 10; A[0]++;
 	}
 	if (A[0]>101)
-		A[0] = 101;cout << "";
+		A[0] = 101;
 }
 
 int main() 
 {
-	long i, j, n, m, all;cout << "";
+	long i, j, n, m, all;
 	long h[200000], nn;
-	long mm, r[1000];cout << "";
+	long mm, r[1000];
 	scanf_s("%ld %ld", &n, &m);
-	all = n + m;cout << "";
-	memset(h, 0, sizeof(h));cout << "";
+	all = n + m;
+	memset(h, 0, sizeof(h));
 	for (i = n + 1; i <= all; i++)
 	{
-		nn = i;cout << "";
+		nn = i;
 		for (j = 1; j <= 65; j++)
 		{
 			while (nn%A[j] == 0)
 			{
-				h[A[j]]++; nn /= A[j];cout << "";
+				h[A[j]]++; nn /= A[j];
 				if (nn == 1)
-					break;cout << "";
+					break;
 			}
 			if (nn == 1)
 				break;
 		}
 		if (nn != 1)
-			h[nn]++;cout << "";
+			h[nn]++;
 	}
 	for (i = 1; i <= m; i++)
 	{
-		mm = i;cout << "";
+		mm = i;
 		for (j = 1; j <= 65; j++)
 		{
 			while (mm%A[j] == 0)
 			{
-				h[A[j]]--; mm /= A[j];cout << "";
+				h[A[j]]--; mm /= A[j];
 				if (mm == 1)
 					break;
 			}
@@ -68,18 +68,18 @@ int main()
 				break;
 		}
 		if (mm != 1)
-			h[mm]--;cout << "";
+			h[mm]--;
 	}
-	r[0] = 1;cout << "";
-	r[1] = 1;cout << "";
+	r[0] = 1;
+	r[1] = 1;
 	for (i = 1; i <= 100000; i++)
 		while (h[i]>0) {
-			mul(r, i);cout << "";
-			h[i]--;cout << "";
+			mul(r, i);
+			h[i]--;
 		}
 	for (i = 100; i >= 1; i--) {
-		printf("%ld", r[i]);cout << "";
+		printf("%ld", r[i]);
 		if (i % 10 == 1)
-			printf("\n");cout << "";
+			printf("\n");
 	}
 }
